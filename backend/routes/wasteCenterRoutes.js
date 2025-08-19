@@ -29,8 +29,9 @@ router.get('/nearby', async (req, res) => {
     }
 
     // Geocode user location
-    const geoRes = await axios.get(GEOCODE_API, {
-      params: { q: user.location, format: 'json', limit: 1 }
+     const geoRes = await axios.get(GEOCODE_API, {
+      params: { q: user.location, format: 'json', limit: 1 },
+      headers: { 'User-Agent': 'EcosortApp/1.0 (https://ecosort-6zu2.onrender.com)' } 
     });
 
     if (!geoRes.data.length) return res.status(400).json({ error: 'Invalid location' });
