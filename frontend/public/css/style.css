@@ -152,42 +152,7 @@ tr:hover {
   background-color: #f9fdf9;
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 1rem;
-    margin: 1rem;
-  }
 
-  table {
-    display: block;
-    overflow-x: auto;
-    width: 100%;
-  }
-
-  th, td {
-    padding: 0.6rem;
-    font-size: 0.9rem;
-  }
-
-  .container h2 {
-    font-size: 1.4rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0.5rem;
-  }
-
-  th, td {
-    padding: 0.4rem;
-    font-size: 0.8rem;
-  }
-
-  .container h2 {
-    font-size: 1.2rem;
-  }
-}
 
 /* ========================
    Login Box (Optional)
@@ -258,22 +223,7 @@ tr:hover {
   font-size: 0.9rem;
 }
 
-/* ========================
-   Responsive
-======================== */
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-end;
-  }
 
-  .form-section,
-  .container {
-    margin: 1rem;
-    padding: 1.5rem;
-  }
-}
 
 
 /* ========================
@@ -478,21 +428,6 @@ h1 {
   border-radius: 6px;
 }
 
-/* Responsive Tweaks */
-@media (max-width: 600px) {
-  .profile-card {
-    padding: 1.5rem;
-  }
-
-  .edit-btn,
-  .save-btn {
-    width: 100%;
-  }
-
-  .qr-image-inline {
-    max-width: 100px;
-  }
-}
 
 
 /* Base styles */
@@ -524,28 +459,7 @@ h1 {
   cursor: pointer;
 }
 
-/* Responsive: show hamburger and hide nav links on small screens */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: #4CAF50;
-    width: 200px;
-    padding: 10px;
-    border-radius: 8px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-}
 
 
 
@@ -630,23 +544,7 @@ h1 {
   background-color: #c62828;
 }
 
-/* ========================
-   Responsive Adjustments
-======================== */
-@media (max-width: 768px) {
-  #scanResult,
-  #qrScannerCard {
-    margin: 1rem;
-    padding: 1.5rem;
-  }
 
-  #verifyBtn,
-  #rejectBtn {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 0.5rem;
-  }
-}
 
 
 
@@ -706,32 +604,7 @@ h1 {
   color: #264653;
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  #centerResults {
-    padding: 0 10px;
-  }
 
-  .hamburger {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: #4CAF50;
-    width: 200px;
-    padding: 10px;
-    border-radius: 8px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-}
 
 
  
@@ -790,22 +663,22 @@ h1 {
   color: #264653;
 }
 
-/* Responsive tweaks */
-@media (max-width: 600px) {
-  #rewardsList, #centerResults {
-    padding: 0 10px;
-  }
+/* ========================
+   Responsive Design
+======================== */
 
-  .reward-card, .center-card {
-    padding: 15px;
-  }
+/* Mobile First: Styles for all screens */
+/* Your existing base styles should be here */
 
+/* Small screens (up to 768px) */
+@media (max-width: 768px) {
+  /* Navbar responsiveness */
   .hamburger {
-    display: block;
+    display: block; /* Shows the hamburger on small screens */
   }
 
   .nav-links {
-    display: none;
+    display: none; /* Hides the navigation links by default */
     flex-direction: column;
     position: absolute;
     top: 60px;
@@ -814,9 +687,86 @@ h1 {
     width: 200px;
     padding: 10px;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
   }
 
   .nav-links.active {
-    display: flex;
+    display: flex; /* Displays links when the 'active' class is added */
+  }
+
+  /* General layout adjustments */
+  .container,
+  .form-section,
+  #qrScannerCard,
+  #scanResult {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  /* Table responsiveness */
+  table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  th,
+  td {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .container h2 {
+    font-size: 1.4rem;
+  }
+
+  /* Button responsiveness */
+  .edit-btn,
+  .save-btn,
+  #verifyBtn,
+  #rejectBtn {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Card responsiveness */
+  #centerResults,
+  #rewardsList {
+    padding: 0 10px;
+  }
+}
+
+/* Smaller screens (up to 600px) */
+@media (max-width: 600px) {
+  .profile-card {
+    padding: 1.5rem;
+  }
+  
+  .qr-image-inline {
+    max-width: 100px;
+  }
+
+  .reward-card,
+  .center-card {
+    padding: 15px;
+  }
+}
+
+/* Even smaller screens (up to 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  th,
+  td {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .container h2 {
+    font-size: 1.2rem;
   }
 }
