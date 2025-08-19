@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Profile</title>
+   <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+    <nav class="navbar">
+    <h1>Ecosort</h1>
+     <div class="hamburger" id="hamburger">&#9776;</div>
+      <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="rewards.html">Rewards</a></li>
+      <li><a href="collection-centers.html">Centers</a></li>
+      <li><a href="cleanup.html">Cleanup Drives</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="#" id="logoutBtn">Logout</a></li>
+      
+    </ul>
+  </nav>
+  
+<div class="profile-card">
+  <h2 class="profile-title">Your Profile</h2>
+<div class="field-group inline-field">
+  <span class="field-label">Name:</span>
+  <span class="field-value" id="name"></span>
+</div>
+
+<div class="field-group inline-field">
+  <span class="field-label">Email:</span>
+  <span class="field-value" id="email"></span>
+</div>
+
+
+  <!-- 👇 Embed QR Code Inline -->
+  <div class="field-group qr-inline">
+    <label>QR Code:</label><br />
+    <img id="qrCodeImage" class="qr-image-inline" src="" alt="QR Code" />
+  </div>
+
+  <div class="field-group">
+    <label for="location">Location:</label>
+    <input type="text" id="location" class="field-input" readonly />
+    <button class="edit-btn" id="editLocationBtn">Edit Location</button>
+  </div>
+
+  <div class="field-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" class="field-input" readonly />
+    <button class="edit-btn" id="editPasswordBtn">Edit Password</button>
+  </div>
+
+  <button class="save-btn" id="saveBtn" style="display: none;">Save Changes</button>
+</div>
+
+
+  <script src="js/profile.js"></script>
+</body>
+</html>

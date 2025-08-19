@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script defer src="https://unpkg.com/html5-qrcode"></script>
+  <style>
+    /* Card style for user info */
+    #scanResult {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f5f5f5;
+      max-width: 500px;
+    }
+
+    #scanResult p {
+      margin: 5px 0;
+    }
+
+    /* Verification section */
+    .verification-section {
+      margin-top: 15px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
+    .checkbox-group label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    /* Buttons */
+    .status-actions {
+      margin-top: 15px;
+    }
+
+    .approve-btn, .reject-btn, #updateVerificationBtn {
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .approve-btn { background-color: #4caf50; color: #fff; margin-right: 10px; }
+    .reject-btn { background-color: #f44336; color: #fff; }
+    #updateVerificationBtn { background-color: #2196f3; color: #fff; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Admin Dashboard</h1>
+
+  <section id="qrScannerCard">
+    <h2>🔍 QR Code Scanner</h2>
+    <div id="reader" style="width:300px;"></div>
+  </section>
+
+  <section id="scanResult">
+    <h3>User Information</h3>
+    <p><strong>Name:</strong> <span id="userName"></span></p>
+    <p><strong>ID:</strong> <span id="userID"></span></p>
+    <p><strong>Email:</strong> <span id="userEmail"></span></p>
+    <p><strong>Location:</strong> <span id="userLocation"></span></p>
+    <p><strong>Date of Visit:</strong> <span id="visitDate"></span></p>
+    <p><strong>Status:</strong> <span id="userStatus"></span></p>
+    <p><strong>Biodegradable:</strong> <span id="bioWaste"></span> kg</p>
+    <p><strong>Non-Biodegradable:</strong> <span id="nonBioWaste"></span> kg</p>
+
+    <div class="verification-section">
+      <h4>Verification Options</h4>
+      <div class="checkbox-group">
+        <label>
+          ✅ Verified Bio:
+          <input type="checkbox" id="verifiedBio" />
+        </label>
+        <label>
+          ✅ Verified Non-Bio:
+          <input type="checkbox" id="verifiedNonBio" />
+        </label>
+      </div>
+      <button id="updateVerificationBtn">Update Verification</button>
+    </div>
+
+  <script defer src="/js/dashboard.js"></script>  
+
+</body>
+
+</html>

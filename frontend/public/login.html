@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <form class="login-box" id="loginForm">
+      <h2>Login</h2>
+      <input type="text" placeholder="Name" name="name" required />
+      <input type="password" placeholder="Password" name="password" required />
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a href="register.html" id="toRegister">Register</a></p>
+    </form>
+  </div>
+
+  <script>
+    // Redirect to register.html when "Register" link is clicked
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const data = {
+    name: form.name.value,
+    password: form.password.value
+  };
+
+  const response = await fetch('/api/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+
+  const result = await response.json();
+  if (response.ok) {
+    localStorage.setItem('userId', result.user._id); // ✅ This will store correctly
+
+    localStorage.setItem('userName', result.user.name);
+localStorage.setItem('token', result.user.token); // ADD THIS
+
+    localStorage.setItem('userRole', result.user.role);
+console.log(localStorage.getItem('userId'));
+
+    alert('Login successful');
+   if (result.user.role === 'admin') {
+    window.location.href = 'admin_panel.html'; // 🔐 Admin dashboard
+  } else {
+    window.location.href = 'index.html'; // 👤 Regular user homepage
+  }
+} else {
+  alert(result.error || 'Login failed');
+}
+});
+
+  </script>
+</body>
+</html>

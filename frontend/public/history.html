@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Submission History</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+    <h1>Ecosort</h1>
+     <div class="hamburger" id="hamburger">&#9776;</div>
+      <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="rewards.html">Rewards</a></li>
+      <li><a href="collection-centers.html">Centers</a></li>
+      <li><a href="cleanup.html">Cleanup Drives</a></li>
+       <li><a href="profile.html">Profile</a></li>
+      <li><a href="#" id="logoutBtn">Logout</a></li>
+      
+    </ul>
+  </nav>
+  <div class="container">
+    <h1>Your Waste History</h1>
+    <table id="historyTable">
+      <thead>
+        <tr>
+          <th>Date & Time</th>
+          <th>Biodegradable (kg)</th>
+          <th>Non-Biodegradable (kg)</th>
+          <th>Status</th>
+          <th>Bio Verified</th>
+          <th>Non-Bio Verified</th>
+
+        </tr>
+      </thead>
+      <tbody id="historyBody">
+        <!-- Records will be injected by JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="../js/history.js"></script>
+</body>
+</html>

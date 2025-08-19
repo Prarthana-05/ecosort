@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home - Ecosort</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <h1>Ecosort</h1>
+
+     <!-- Hamburger icon for mobile -->
+    <div class="hamburger" id="hamburger">&#9776;</div>
+      <ul class="nav-links" id="navLinks">
+
+      <li><a href="index.html">Home</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="rewards.html">Rewards</a></li>
+      <li><a href="collection-centers.html">Centers</a></li>
+      <li><a href="cleanup.html">Cleanup Drives</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="#" id="logoutBtn">Logout</a></li>
+      
+    </ul>
+  </nav>
+
+
+  <section class="form-section">
+  <h2>♻️ Waste Submission</h2>
+  <form id="wasteForm">
+    <div class="form-group">
+      <label for="wasteType">Select Waste Type:</label>
+      <select id="wasteType" name="wasteType" required>
+        <option value="">--Choose--</option>
+        <option value="Biodegradable">Biodegradable</option>
+        <option value="Non-Biodegradable">Non-Biodegradable</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="quantity">Quantity (kg):</label>
+      <input type="number" id="quantity" name="quantity" step="0.1" placeholder="Optional if using ML model" />
+    </div>
+
+    <div class="form-group">
+      <label for="datetime">Date & Time:</label>
+      <input type="text" id="datetime" name="datetime" readonly />
+    </div>
+
+    <div class="form-group">
+      <label>Status:</label>
+      <input type="text" value="Pending" readonly />
+    </div>
+
+    <button type="submit">Submit Waste</button>
+  </form>
+</section>
+
+  <!-- External Script -->
+  <script src="/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <form class="login-box" id="registerForm">
+      <h2>Register</h2>
+      <input type="text" placeholder="Name" name="name" required />
+      <input type="email" placeholder="Email" name="email" required />
+      <input type="password" placeholder="Password" name="password" required />
+      <input type="text" placeholder="Location" name="location" required />
+      <button type="submit">Register</button>
+      <p>Already have an account? <a href="#" id="toLogin">Login</a></p>
+    </form>
+  </div>
+
+  <script>
+    // Redirect to login page
+    document.getElementById('toLogin').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = 'login.html';
+    });
+
+    // Handle registration
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        password: form.password.value,
+        location: form.location.value
+      };
+
+      const response = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        localStorage.setItem('userId', result._id);
+        alert('Registered successfully!');
+        window.location.href = 'login.html';
+      } else {
+        alert(result.error || 'Registration failed');
+      }
+    });
+  </script>
+</body>
+</html>
