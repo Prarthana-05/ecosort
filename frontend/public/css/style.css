@@ -152,43 +152,6 @@ tr:hover {
   background-color: #f9fdf9;
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 1rem;
-    margin: 1rem;
-  }
-
-  table {
-    display: block;
-    overflow-x: auto;
-    width: 100%;
-  }
-
-  th, td {
-    padding: 0.6rem;
-    font-size: 0.9rem;
-  }
-
-  .container h2 {
-    font-size: 1.4rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0.5rem;
-  }
-
-  th, td {
-    padding: 0.4rem;
-    font-size: 0.8rem;
-  }
-
-  .container h2 {
-    font-size: 1.2rem;
-  }
-}
-
 /* ========================
    Login Box (Optional)
 ======================== */
@@ -259,24 +222,6 @@ tr:hover {
 }
 
 /* ========================
-   Responsive
-======================== */
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-end;
-  }
-
-  .form-section,
-  .container {
-    margin: 1rem;
-    padding: 1.5rem;
-  }
-}
-
-
-/* ========================
    Cleanup Drives Page
 ======================== */
 #cleanupDrivesResult {
@@ -313,7 +258,9 @@ h1 {
   color: #2e8b57;
 }
 
-/* Profile Layout */
+/* ========================
+   Profile Layout
+======================== */
 .profile-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -324,7 +271,6 @@ h1 {
   padding: 0 2rem;
 }
 
-/* Profile Card */
 /* ========================
    Profile Page Core Styles
 ======================== */
@@ -369,10 +315,11 @@ h1 {
 
 .field-input {
   width: 100%;
-  padding: 0.6rem 0.75rem;
+  max-width: 300px;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.85rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 0.95rem;
+  border-radius: 6px;
 }
 
 .field-input[readonly] {
@@ -393,50 +340,6 @@ h1 {
 }
 
 /* Button Styles */
-.edit-btn,
-.save-btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  background-color: #2e8b57;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 0.4rem;
-  transition: background-color 0.3s ease;
-}
-
-.edit-btn:hover,
-.save-btn:hover {
-  background-color: #256a46;
-}
-
-.save-btn {
-  background-color: #00796b;
-  margin-top: 1rem;
-}
-
-.save-btn:hover {
-  background-color: #004d40;
-}
-
-/* Inline Field Formatting */
-.inline-field {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  font-size: 0.95rem;
-  margin-bottom: 0.8rem;
-}
-
-.field-label {
-  font-weight: 600;
-  color: #333;
-}
-
-/* Refined Button Styling */
 .edit-btn,
 .save-btn {
   padding: 0.4rem 0.9rem;
@@ -469,85 +372,20 @@ h1 {
 .save-btn:hover {
   background-color: #004d40;
 }
-.field-input {
-  width: 100%;
-  max-width: 300px;
-  padding: 0.45rem 0.7rem;
-  font-size: 0.85rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
 
-/* Responsive Tweaks */
-@media (max-width: 600px) {
-  .profile-card {
-    padding: 1.5rem;
-  }
-
-  .edit-btn,
-  .save-btn {
-    width: 100%;
-  }
-
-  .qr-image-inline {
-    max-width: 100px;
-  }
-}
-
-
-/* Base styles */
-.navbar {
+/* Inline Field Formatting */
+.inline-field {
   display: flex;
-  justify-content: space-between;
+  gap: 0.5rem;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
 }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
+.field-label {
+  font-weight: 600;
+  color: #333;
 }
-
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Hamburger hidden by default */
-.hamburger {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* Responsive: show hamburger and hide nav links on small screens */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: #4CAF50;
-    width: 200px;
-    padding: 10px;
-    border-radius: 8px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-}
-
-
 
 /* ========================
    Admin Dashboard - QR Scanner Card
@@ -631,57 +469,23 @@ h1 {
 }
 
 /* ========================
-   Responsive Adjustments
-======================== */
-@media (max-width: 768px) {
-  #scanResult,
-  #qrScannerCard {
-    margin: 1rem;
-    padding: 1.5rem;
-  }
-
-  #verifyBtn,
-  #rejectBtn {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 0.5rem;
-  }
-}
-
-
-
-
-
-/* Cards Container */
-#centerResults {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 0 20px;
-}
-
-/* Individual Center Card */
-/* ========================
    Collection Centers Page - Horizontal Cards
 ======================== */
 #centerResults {
-  display: block; /* change from flex to block */
+  display: block;
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 20px;
 }
 
 .center-card {
-  width: 100%; /* full width inside container */
-  margin-bottom: 1.5rem; /* space between cards */
-
+  width: 100%;
+  margin-bottom: 1.5rem;
   background-color: #ffffff;
-  border-left: 6px solid #2e8b57; /* matches cleanup drives */
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-left: 6px solid #2e8b57;
   border-radius: 10px;
   padding: 15px 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -706,48 +510,10 @@ h1 {
   color: #264653;
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  #centerResults {
-    padding: 0 10px;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: #4CAF50;
-    width: 200px;
-    padding: 10px;
-    border-radius: 8px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-}
-
-
- 
-   
+/* ========================
+   Rewards Page
+======================== */
 #rewardsList {
-  max-width: 700px;
-  margin: 2rem 0; /* removed auto to avoid centering */
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 0 20px;
-  align-items: flex-start; /* left align cards */
-}
-
-/* Container for cards */
-#rewardsList, #centerResults {
   max-width: 800px;
   margin: 2rem auto;
   display: flex;
@@ -757,9 +523,9 @@ h1 {
 }
 
 /* Individual card style */
-.reward-card, .center-card {
+.reward-card {
   background-color: #fff;
-  border-left: 6px solid #2e8b57; /* Green accent on left */
+  border-left: 6px solid #2e8b57;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -767,56 +533,123 @@ h1 {
   width: 100%;
 }
 
-.reward-card:hover, .center-card:hover {
+.reward-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
 /* Card heading */
-.reward-card h3, .center-card h3 {
+.reward-card h3 {
   color: #2e8b57;
   font-size: 1.3rem;
   margin-bottom: 0.8rem;
 }
 
 /* Card text */
-.reward-card p, .center-card p {
+.reward-card p {
   margin: 0.4rem 0;
   color: #333;
   font-size: 0.95rem;
 }
 
-.reward-card p strong, .center-card p strong {
+.reward-card p strong {
   color: #264653;
 }
 
-/* Responsive tweaks */
+/* ========================
+   Responsive Design
+======================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+
+  .form-section,
+  .container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  th, td {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .container h2 {
+    font-size: 1.4rem;
+  }
+
+  #scanResult,
+  #qrScannerCard {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  #verifyBtn,
+  #rejectBtn {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  #centerResults {
+    padding: 0 10px;
+  }
+}
+
 @media (max-width: 600px) {
-  #rewardsList, #centerResults {
+  .profile-card {
+    padding: 1.5rem;
+  }
+
+  .edit-btn,
+  .save-btn {
+    width: 100%;
+  }
+
+  .qr-image-inline {
+    max-width: 100px;
+  }
+
+  #rewardsList, 
+  #centerResults {
     padding: 0 10px;
   }
 
-  .reward-card, .center-card {
+  .reward-card, 
+  .center-card {
     padding: 15px;
   }
+}
 
-  .hamburger {
-    display: block;
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
   }
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: #4CAF50;
-    width: 200px;
-    padding: 10px;
-    border-radius: 8px;
+  th, td {
+    padding: 0.4rem;
+    font-size: 0.8rem;
   }
 
-  .nav-links.active {
-    display: flex;
+  .container h2 {
+    font-size: 1.2rem;
   }
 }
