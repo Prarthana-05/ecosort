@@ -258,6 +258,22 @@ tr:hover {
   font-size: 0.9rem;
 }
 
+/* ========================
+   Responsive
+======================== */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+
+  .form-section,
+  .container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}
 
 
 /* ========================
@@ -479,8 +495,57 @@ h1 {
 }
 
 
+/* Base styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+}
 
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
 
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hamburger hidden by default */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsive: show hamburger and hide nav links on small screens */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #4CAF50;
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
 
 
 
@@ -641,6 +706,32 @@ h1 {
   color: #264653;
 }
 
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  #centerResults {
+    padding: 0 10px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #4CAF50;
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
 
 
  
@@ -727,22 +818,5 @@ h1 {
 
   .nav-links.active {
     display: flex;
-  }
-}
-
-
-
-/* KEEP ONLY THIS RESPONSIVE NAVBAR RULE */
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-end;
-  }
-
-  .form-section,
-  .container {
-    margin: 1rem;
-    padding: 1.5rem;
   }
 }
