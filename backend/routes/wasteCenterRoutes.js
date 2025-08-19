@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
-const Drive = require('../models/Drive');
+const WasteCenter = require('../models/wastecenter');
 const axios = require('axios');
 
 const GEOCODE_API = "https://nominatim.openstreetmap.org/search";
-const geocodeCache = {}; // Simple cache
 
+// Haversine formula to calculate distance between two lat/lng points
 function calculateDistance(lat1, lon1, lat2, lon2) {
-  const R = 6371;
+  const R = 6371; // km
   const toRad = angle => (angle * Math.PI) / 180;
   const dLat = toRad(lat2 - lat1);
   const dLon = toRad(lon2 - lon1);
@@ -19,45 +19,35 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   return R * c;
 }
 
-router.get('/user-location', async (req, res) => {
+// GET nearby waste centers
+router.get('/nearby', async (req, res) => {
   try {
     const userId = req.query.userId;
-    if (!userId) return res.status(400).json({ error: 'User ID missing' });
-
     const user = await User.findById(userId);
-    if (!user || !user.location) return res.status(404).json({ error: 'User or location not found' });
-
-    // Use cache if available
-    let userLat, userLon;
-    if (geocodeCache[user.location]) {
-      ({ lat: userLat, lon: userLon } = geocodeCache[user.location]);
-    } else {
-      const geoRes = await axios.get(GEOCODE_API, {
-        params: { q: user.location, format: 'json', limit: 1 },
-        headers: {
-          'User-Agent': 'EcosortApp/1.0 (your-email@example.com)',
-          'Referer': 'https://ecosort-6zu2.onrender.com'
-        }
-      });
-
-      if (!geoRes.data.length) return res.status(400).json({ error: 'Invalid location' });
-
-      userLat = parseFloat(geoRes.data[0].lat);
-      userLon = parseFloat(geoRes.data[0].lon);
-
-      geocodeCache[user.location] = { lat: userLat, lon: userLon }; // Cache it
+    if (!user || !user.location) {
+      return res.status(404).json({ error: 'User or location not found' });
     }
 
-    const allDrives = await Drive.find({});
-    const nearbyDrives = allDrives.filter(d => {
-      if (!d.lat || !d.lng) return false;
-      const dist = calculateDistance(userLat, userLon, d.lat, d.lng);
-      return dist <= 25;
+    // Geocode user location
+    const geoRes = await axios.get(GEOCODE_API, {
+      params: { q: user.location, format: 'json', limit: 1 }
     });
 
-    res.json(nearbyDrives);
+    if (!geoRes.data.length) return res.status(400).json({ error: 'Invalid location' });
+
+    const userLat = parseFloat(geoRes.data[0].lat);
+    const userLon = parseFloat(geoRes.data[0].lon);
+
+    const allCenters = await WasteCenter.find({});
+    const nearbyCenters = allCenters.filter(c => {
+      if (!c.lat || !c.lng) return false;
+      const dist = calculateDistance(userLat, userLon, c.lat, c.lng);
+      return dist <= 25; // within 25 km
+    });
+
+    res.json(nearbyCenters);
   } catch (err) {
-    console.error('Error in /user-location:', err);
+    console.error(err);
     res.status(500).json({ error: 'Server error' });
   }
 });
