@@ -495,34 +495,6 @@ h1 {
 }
 
 
-/* Base styles */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Hamburger hidden by default */
-.hamburger {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-}
 
 /* Responsive: show hamburger and hide nav links on small screens */
 @media (max-width: 768px) {
