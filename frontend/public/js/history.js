@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const tableBody = document.getElementById('historyBody');
     tableBody.innerHTML = `<tr><td colspan="6">Loading history...</td></tr>`;
 
-    const response = await fetch('/api/waste/history', {
+    const response = await fetch('https://ecosort-6zu2.onrender.com/api/waste/history', {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'

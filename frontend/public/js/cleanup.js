@@ -20,7 +20,7 @@ async function loadCleanupDrives() {
   }
 
   try {
-    const response = await fetch(`/api/events/user-location?userId=${userId}`);
+    const response = await fetch(`https://ecosort-6zu2.onrender.com/api/events/user-location?userId=${userId}`);
     const data = await response.json();
 
     resultContainer.innerHTML = '';

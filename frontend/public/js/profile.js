@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Fetch Profile Data
   try {
-    const response = await fetch('/api/user/profile', {
+    const response = await fetch('https://ecosort-6zu2.onrender.com/api/user/profile', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const endpoint =
       fieldToUpdate === 'location'
-        ? '/api/user/update-location'
-        : '/api/user/update-password';
+        ? 'https://ecosort-6zu2.onrender.com/api/user/update-location'
+        : 'https://ecosort-6zu2.onrender.com/api/user/update-password';
 
     try {
       const response = await fetch(endpoint, {

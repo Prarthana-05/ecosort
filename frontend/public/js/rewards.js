@@ -18,7 +18,7 @@ if (!token) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('/api/admin/rewards', {   // note /api/admin/rewards
+  fetch('https://ecosort-6zu2.onrender.com/api/admin/rewards', {   // note /api/admin/rewards
   headers: { 'Authorization': `Bearer ${token}` }
 })
 .then(res => res.json())

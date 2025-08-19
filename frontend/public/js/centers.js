@@ -20,7 +20,7 @@ async function loadCenters() {
   }
 
   try {
-    const response = await fetch(`/api/centers/nearby?userId=${userId}`);
+    const response = await fetch(`https://ecosort-6zu2.onrender.com/api/centers/nearby?userId=${userId}`);
     const data = await response.json();
 
     resultContainer.innerHTML = '';

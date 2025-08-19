@@ -76,7 +76,7 @@ document.getElementById('wasteForm').addEventListener('submit', async function (
   };
 
   try {
-    const response = await fetch('/api/user/submit-waste', {
+    const response = await fetch('https://ecosort-6zu2.onrender.com/api/user/submit-waste', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(submissionData)

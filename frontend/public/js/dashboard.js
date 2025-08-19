@@ -18,7 +18,7 @@ if (!token) {
 // QR Scanner Setup
 function onScanSuccess(decodedText) {
   const userId = decodedText;
-  fetch(`/api/admin/scan/${userId}`, { headers: { 'Authorization': `Bearer ${token}` } })
+  fetch(`https://ecosort-6zu2.onrender.com/api/admin/scan/${userId}`, { headers: { 'Authorization': `Bearer ${token}` } })
     .then(res => res.json())
     .then(data => {
       document.getElementById('userName').textContent = data.name;
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const verifiedBio = document.getElementById('verifiedBio').checked;
   const verifiedNonBio = document.getElementById('verifiedNonBio').checked;
 
-  fetch(`/api/admin/verify/${userId}`, {
+  fetch(`https://ecosort-6zu2.onrender.com/api/admin/verify/${userId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
