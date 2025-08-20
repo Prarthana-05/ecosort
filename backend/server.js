@@ -16,6 +16,19 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/ecosort', {
   useUnifiedTopology: true,
 });
 
+
+// Middleware
+const corsOptions = {
+  origin: [
+    "https://prarthanaa-portfolio.netlify.app",
+    "https://ecosortt.netlify.app"
+  ],
+  methods: ['GET','POST','PUT','DELETE'],
+  credentials: true
+};
+
+app.use(cors(corsOptions)); // <-- MOVE THIS BEFORE ROUTES
+
 app.use(express.json());
 const wasteRoutes = require('./routes/wasteRoutes');
 const frontendPath = path.join(__dirname, '../frontend/public');
@@ -35,15 +48,7 @@ app.use('/api/auth', authRoutes);
 app.use('/qr', express.static(path.join(__dirname, 'public/qr')));
 
 
-app.use(cors({
-  origin: [
-    
-    "https://prarthanaa-portfolio.netlify.app",
-    "https://ecosortt.netlify.app/"
-  ],
-  methods: ['GET','POST','PUT','DELETE'],
-  credentials: true // if you plan to send cookies or authorization headers
-}));
+
 // server.js
 
 
