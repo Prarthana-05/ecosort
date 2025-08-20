@@ -667,8 +667,6 @@ h1 {
    Responsive Design
 ======================== */
 
-/* Mobile First: Styles for all screens */
-/* Your existing base styles should be here */
 
 /* Small screens (up to 768px) */
 @media (max-width: 768px) {

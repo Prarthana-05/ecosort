@@ -34,6 +34,15 @@ app.use('/api/auth', authRoutes);
 app.use('/qr', express.static(path.join(__dirname, 'public/qr')));
 
 
+app.use(cors({
+  origin: [
+    
+    "https://prarthanaa-portfolio.netlify.app",
+    "https://ecosortt.netlify.app/"
+  ],
+  methods: ['GET','POST','PUT','DELETE'],
+  credentials: true // if you plan to send cookies or authorization headers
+}));
 // server.js
 
 
