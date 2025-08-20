@@ -9,6 +9,7 @@ const adminRoutes = require('./routes/adminRoutes');
 const wasteCenterRoutes = require('./routes/wasteCenterRoutes');
 const path = require('path');
 require('dotenv').config();
+const cors = require("cors");
 
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/ecosort', {
   useNewUrlParser: true,
